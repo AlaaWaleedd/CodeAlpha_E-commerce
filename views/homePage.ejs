@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/homaPage.css">
     <script src="/scripts/homePage.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
         <title>Homeify</title>
 </head>
 <body>
@@ -14,9 +15,9 @@
     </header>
 
 
-    <div>
-        <h2 class="slogan">Experience the Art of Living</h2>
-    </div>
+  
+    
+ 
     <div class="slider">
         <div class="slides">
           <div class="slide"><img src="/images/homePage-images/slide 1.jpg"></div>
@@ -32,15 +33,76 @@
           </div>
       </div>
 
-      <div class="sellers">
-        <h2 class="sellers-title">Our Best Sellers</h2>
+ 
+      <h2 class="slogan">Experience the Art of Living</h2>
 
-        <div class="sellers-content">
-            <div class="card">
-                <img src="/images/homePage-images/arm chair.jpg">
-                <h3>Modern Armchair </h3>
-            </div>
+      <!-- <h2 class="sellers-title">Our Best Sellers</h2>
+    <section class="best-sellers">
+ 
+        <div class="cards-container">
+           
+<% products.forEach(product => { %> 
+    <div class="card">
+        <img src="<%= product.image %>" alt="<%= product.name %>">
+        <h3><%= product.name %></h3>
+    </div>
+<% }); %>
+     
+    </section> -->
+
+   
+   <section class="overview">
+    <span class="section1">
+        <img src="/images/homePage-images/bedroom.jpeg">
+    <h2> BEDROOMS</h2>
+<div >
+    <p>Bedrooms available in various designs and<br>
+         sizes to make your bedroom as special as it <br>should be. we offer a wide range of options <br>
+         to suit your needs and preferences</p>
         </div>
-      </div>
+    </span>
+
+    <span class="section2">
+        <img src="/images/homePage-images/living room.jpeg">
+        <h2>LIVING ROOMS</h2>
+
+        <div class=" paragraph">
+            <p>Transform your living space into a sanctuary of comfort and style with our curated selection of furnishings and decor.
+                 </p>
+                </div>
+    </span>
+   </section>
+
+   <section class="overview">
+    <span class="section3">
+     
+        <h2>DINNING ROOM</h2>
+        <img src="/images/homePage-images/dinning room.jpeg">
+        <div>
+            <p>Elevate your dining experience with our exquisite <br>range of 
+                dining room essentials. our collection is<br> designed
+                 to inspire unforgettable gatherings.</p>
+        </div>
+    </span>
+
+    <span class="section4">
+        <h2>NIGHT STANDS</h2>
+        <div>
+            <p>Enhance your bedroom oasis with our <br>thoughtfully Choose from a variety of designs,<br> including sleek modern styles and classic<br> wooden
+                 finishes.
+                 selected nightstands. 
+                
+            </p>
+        </div>
+        <img src="/images/homePage-images/night stand.jpeg">
+        
+    </span>
+   </section>
+ 
+   <div class="anything">
+    <div class="card">
+        <h1>h</h1>
+    </div>
+   </div>
 </body>
 </html>
