@@ -11,13 +11,14 @@ try{
 };
 const addProduct=async(req,res)=>{
 try{
-    const{name,image,price,category,components,colors}=req.body;
+    const{name,image,price,category,material,components,colors}=req.body;
  
     const newProduct=new Product({
         name,
         image,
         price,
         category,
+        material,
         components,
         colors
     });

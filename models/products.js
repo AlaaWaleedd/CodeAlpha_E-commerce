@@ -11,19 +11,22 @@ image:{
     required:[true,"please enter a product's image"],
 },
 price:{
-    type:Number,
+    type:String,
     required:[true,"please enter a price"],
 },
 category:{
 type:String,
 
 },
+material:{
+type:String,
+},
 components:{
-    type:String,
+    type:[String],
 },
 
 colors:{
-    type:String,
+    type:[String],
     require:[true,"please enter a color"],
 },
 

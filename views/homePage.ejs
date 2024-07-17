@@ -36,21 +36,7 @@
  
       <h2 class="slogan">Experience the Art of Living</h2>
 
-      <!-- <h2 class="sellers-title">Our Best Sellers</h2>
-    <section class="best-sellers">
- 
-        <div class="cards-container">
-           
-<% products.forEach(product => { %> 
-    <div class="card">
-        <img src="<%= product.image %>" alt="<%= product.name %>">
-        <h3><%= product.name %></h3>
-    </div>
-<% }); %>
-     
-    </section> -->
-
-   
+   <!-- overview section -->   
    <section class="overview">
     <span class="section1">
         <img src="/images/homePage-images/bedroom.jpeg">
@@ -72,6 +58,7 @@
                 </div>
     </span>
    </section>
+
 
    <section class="overview">
     <span class="section3">
@@ -99,10 +86,46 @@
     </span>
    </section>
  
-   <div class="anything">
-    <div class="card">
-        <h1>h</h1>
+   <div class="new-products">
+    
+        <h2>WHAT'S NEW?</h2>
+        <div class="card-container">
+            <% products.forEach((product, index) => { %> 
+                <div class="card">
+                    <img onclick="Details('detailsModal<%= index %>')" src="<%= product.image %>" alt="<%= product.name %>">
+                    <h3 onclick="Details('detailsModal<%= index %>')"><%= product.name %></h3>
+                    <h4>EGP <%= product.price %></h4>
+                </div>
+            <% }); %>
     </div>
-   </div>
+    </div>
+    
+        <!-- Modal -->
+    <% const Modals = products.slice(0, 6); %>
+<% Modals.forEach((product, index) => { %>
+    <div id="detailsModal<%= index %>" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('detailsModal<%= index %>')">&times;</span>
+      
+            <img src="<%= product.image %>" alt="<%= product.name %>">
+          <div class="modal-info">
+            <h2><%= product.name %></h2>
+            <h4>EGP <%= product.price %></h4>
+            <p>Category: <%= product.category %></p>
+            <p>Material: <%= product.material %></p>
+            <p>Colors: <%=product.colors%></p>
+            <p>Components:</p>
+         <ul>
+            <% product.components.forEach(function(component) { %>
+                
+            <li><%=component%> + <li>
+            <% }); %>
+         </ul>
+          <button>Add to Cart</button>
+          </div>
+        </div>
+    </div>
+<% }); %>
+  
 </body>
 </html>
