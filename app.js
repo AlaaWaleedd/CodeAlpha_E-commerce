@@ -19,8 +19,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
 const homePageRoute=require('./routes/homePage-route');
+const productsPageRoute=require('./routes/products-route');
 
-app.use('/',homePageRoute)
+app.use('/',homePageRoute);
+app.use('/products',productsPageRoute);
 
 const dbURL=`mongodb+srv://${dbUserName}:${dbPassword}@cluster0.vlovamp.mongodb.net/codeAlpha?retryWrites=true&w=majority&appName=cluster0`;
 

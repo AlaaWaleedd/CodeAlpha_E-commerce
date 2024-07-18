@@ -40,7 +40,7 @@
 
 }
 
-ul li{
+.nav-ul,.nav-li{
     list-style: none;
     display: inline-block;
     padding-right: 55px;
@@ -48,14 +48,14 @@ ul li{
     position: relative;
 }
 
-li a{
+.nav-li a{
     color: #8c665b;
 text-decoration: none;
 font-size: 20px;
 text-transform: uppercase;
 }
 
-ul li::after{
+.nav-li::after{
     content: "";
     height: 3px;
     width: 0;
@@ -66,6 +66,6 @@ ul li::after{
     transition: 0.5s;
 
 }
-li:hover::after{
+.nav-li:hover::after{
     width:68%;
 }

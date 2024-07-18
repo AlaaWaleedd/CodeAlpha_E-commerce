@@ -63,7 +63,7 @@
    <section class="overview">
     <span class="section3">
      
-        <h2>DINNING ROOM</h2>
+        <h2>DINING ROOM</h2>
         <img src="/images/homePage-images/dinning room.jpeg">
         <div>
             <p>Elevate your dining experience with our exquisite <br>range of 
@@ -90,7 +90,8 @@
     
         <h2>WHAT'S NEW?</h2>
         <div class="card-container">
-            <% products.forEach((product, index) => { %> 
+            <% const items = products.slice(0, 8); %>
+            <% items.forEach((product, index) => { %> 
                 <div class="card">
                     <img onclick="Details('detailsModal<%= index %>')" src="<%= product.image %>" alt="<%= product.name %>">
                     <h3 onclick="Details('detailsModal<%= index %>')"><%= product.name %></h3>
@@ -101,7 +102,7 @@
     </div>
     
         <!-- Modal -->
-    <% const Modals = products.slice(0, 6); %>
+    <% const Modals = products.slice(0, 8); %>
 <% Modals.forEach((product, index) => { %>
     <div id="detailsModal<%= index %>" class="modal">
         <div class="modal-content">
@@ -115,10 +116,12 @@
             <p>Material: <%= product.material %></p>
             <p>Colors: <%=product.colors%></p>
             <p>Components:</p>
-         <ul>
-            <% product.components.forEach(function(component) { %>
-                
-            <li><%=component%> + <li>
+         <ul class="components-ul">
+            <% product.components.forEach(function(component) { %>  
+           
+            <li class="components-li">
+                <%=component%>
+            </li>
             <% }); %>
          </ul>
           <button>Add to Cart</button>

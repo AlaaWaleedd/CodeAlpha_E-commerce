@@ -1,4 +1,4 @@
-const Product=require('../models/products');
+const Product=require('../models/productsSchema');
 
 const getProducts=async(req,res)=>{
 try{

@@ -198,7 +198,7 @@ color: #949579;
 .card{
   margin-left: 5%;
 background-color:transparent;
-width: 350px;
+width: 300px;
 border-radius: 10px;
 border: transparent;
 
@@ -213,7 +213,7 @@ border: transparent;
 
 .card h3{
   color: #686957;
-  padding-left: 15%;
+  padding-left: 30%;
   align-items: center;
   justify-content: center;
 }
@@ -224,7 +224,7 @@ border: transparent;
 }
 .card h4{
   color: #686957;
-  padding-left: 15%;
+  padding-left: 25%;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -263,7 +263,7 @@ border: transparent;
   margin-top: 2%;
 }
 
-ul,li{
+.components-ul,.components-li{
 
   display:flex;
   flex-wrap: wrap;
@@ -271,9 +271,17 @@ ul,li{
   margin: 0;
   padding-bottom: 2%;
   justify-content: space-evenly;
+
   
 }
 
+
+.components-li{
+  margin-left: 5%  ;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color:#bc988e;
+}
 
 .modal-content img{
   width: 40%;
@@ -305,7 +313,7 @@ color:#bc988e;
 
 .modal-info button{
   margin-left: 220px;
-  margin-top: 30px;
+  margin-bottom: 10%;
   background-color: #9d9f80 ;
   border:transparent;
   color: #f7f7f7;
