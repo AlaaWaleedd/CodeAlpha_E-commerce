@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/livingRooms-pagr.css">
+    <script src="/scripts/homePage.js"></script>
+    <title>Living Rooms</title>
+</head>
+<body>
+
+    <header>
+        <%- include("./partial/nav-bar.ejs") %>
+    </header>
+
+    <h2>Living Rooms</h2>
+    <p>Discover an extensive range of living room furniture tailored to meet your preferences,
+         including living sets, L-Shapes, sofa beds, recliners,<br> and more. Our products seamlessly
+          blend functionality, coordination, and aesthetics.</p>
+
+          <div class="card-container">
+            <% const items = products.slice(0, 8); %>
+            <% items.forEach((product, index) => { %> 
+                <div class="card">
+                    <img onclick="Details('detailsModal<%= index %>')" src="<%= product.image %>" alt="<%= product.name %>">
+                    <h3 onclick="Details('detailsModal<%= index %>')"><%= product.name %></h3>
+                    <h4>EGP <%= product.price %></h4>
+                </div>
+            <% }); %>
+    </div>
+
+
+      <!-- Modal -->
+      <% const Modals = products.slice(0, 8); %>
+      <% Modals.forEach((product, index) => { %>
+          <div id="detailsModal<%= index %>" class="modal">
+              <div class="modal-content">
+                  <span class="close" onclick="closeModal('detailsModal<%= index %>')">&times;</span>
+            
+                  <img src="<%= product.image %>" alt="<%= product.name %>">
+                <div class="modal-info">
+                  <h2><%= product.name %></h2>
+                  <h4>EGP <%= product.price %></h4>
+                  <p>Category: <%= product.category %></p>
+                  <p>Material: <%= product.material %></p>
+                  <p>Colors: <%=product.colors%></p>
+                  <p>Components:</p>
+               <ul class="components-ul">
+                  <% product.components.forEach(function(component) { %>  
+                 
+                  <li class="components-li">
+                      <%=component%>
+                  </li>
+                  <% }); %>
+               </ul>
+                <button>Add to Cart</button>
+                </div>
+              </div>
+          </div>
+      <% }); %>
+        
+    
+</body>
+</html>
