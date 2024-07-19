@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/livingRooms-pagr.css">
+    <link rel="stylesheet" href="/styles/diningRooms.css">
     <script src="/scripts/homePage.js"></script>
-    <title>Living Rooms</title>
+    <title> Dining Rooms</title>
 </head>
 <body>
-
+    
+    
     <header>
         <%- include("./partial/nav-bar.ejs") %>
     </header>
 
-    <h2>Living Rooms</h2>
-    <p>Discover an extensive range of living room furniture tailored to meet your preferences,
-         including living sets, L-Shapes, sofa beds, recliners,<br> and more. Our products seamlessly
-          blend functionality, coordination, and aesthetics.</p>
+    <h2>Dining Rooms</h2>
+    <p>Discover an extensive range of dining room furniture tailored to meet your preferences, including dining sets, 
+        extendable tables, chairs,<br> benches, and more. Our products seamlessly blend functionality, coordination, and
+         aesthetics, ensuring that every meal is enjoyed <br>in style and comfort.</p>
 
-          <div class="card-container">
+         <div class="card-container">
          
             <% products.forEach((product, index) => { %> 
                 <div class="card">
