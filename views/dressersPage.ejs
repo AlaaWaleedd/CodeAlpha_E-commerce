@@ -1,71 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/dressersPage.css">
     <script src="/scripts/homePage.js"></script>
+    <link rel="stylesheet" href="/styles/cart.css">
+    <script src="/scripts/cart.js"></script>
     <title>Dressers</title>
 </head>
+
 <body>
     <header>
         <%- include("./partial/nav-bar.ejs") %>
     </header>
 
+    <!-- CART OVERLAY -->
+    <div class="overlayCart" id="overlayCart">
+        <div class="popWindow-cart">
+            <h1>Your Cart</h1>
+            <hr>
+            <h3>Order Summary</h3>
+            <br>
+
+            <p id="cartContent">
+                <i class="fa-solid fa-cart-shopping fa-xl" style="color: #147186;"></i>
+                Your Cart Is Empty, <br> Please Add Items.
+
+
+            </p>
+            <div id="headerC">
+                <h3><i>Items:</i></h3>
+                <br>
+            </div>
+            <div id="orderSumm"></div>
+
+            <button id="CloseCart" onclick="closeWindow('overlayCart')">Finish</button>
+            <button class="closeB" onclick="closeWindow('overlayCart')">
+                <i class="fa-solid fa-xmark fa-xl" style="color: #2d523a;"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ALERT MESSAGE -->
+    <div class="message">
+        <i class="fa-regular fa-circle-check check fa-lg" style="color: #386b55;"></i>
+        <span class="text">Added To Cart Successfully</span>
+    </div>
+
+
     <h2>Dressers</h2>
-    <p>  Explore our diverse range of dressers, designed to enhance your bedroom with both style and functionality. 
-        From sleek, modern pieces to<br> timeless classics, our collection features options with multiple drawers, elegant 
+    <p> Explore our diverse range of dressers, designed to enhance your bedroom with both style and functionality.
+        From sleek, modern pieces to<br> timeless classics, our collection features options with multiple drawers,
+        elegant
         finishes, and sturdy construction to meet all your storage needs.
-
-
-
-
-
-
     </p>
 
-          <div class="card-container">
-         
-            <% products.forEach((product, index) => { %> 
-                <div class="card">
-                    <img onclick="Details('detailsModal<%= index %>')" src="<%= product.image %>" alt="<%= product.name %>">
-                    <h3 onclick="Details('detailsModal<%= index %>')"><%= product.name %></h3>
-                    <h4>EGP <%= product.price %></h4>
-                </div>
+    <div class="card-container">
+
+        <% products.forEach((product, index)=> { %>
+            <div class="card">
+                <img onclick="Details('detailsModal<%= index %>')" src="<%= product.image %>" alt="<%= product.name %>">
+                <h3 onclick="Details('detailsModal<%= index %>')">
+                    <%= product.name %>
+                </h3>
+                <h4>EGP <%= product.price %>
+                </h4>
+            </div>
             <% }); %>
     </div>
-    
 
 
-      <!-- Modal -->
 
-      <% products.forEach((product, index) => { %>
-          <div id="detailsModal<%= index %>" class="modal">
-              <div class="modal-content">
-                  <span class="close" onclick="closeModal('detailsModal<%= index %>')">&times;</span>
-            
-                  <img src="<%= product.image %>" alt="<%= product.name %>">
+    <!-- Modal -->
+
+    <% products.forEach((product, index)=> { %>
+        <div id="detailsModal<%= index %>" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('detailsModal<%= index %>')">&times;</span>
+
+                <img src="<%= product.image %>" alt="<%= product.name %>">
                 <div class="modal-info">
-                  <h2><%= product.name %></h2>
-                  <h4>EGP <%= product.price %></h4>
-                  <p>Category: <%= product.category %></p>
-                  <p>Material: <%= product.material %></p>
-                  <p>Colors: <%=product.colors%></p>
-                  <p>Components:</p>
-               <ul class="components-ul">
-                  <% product.components.forEach(function(component) { %>  
-                 
-                  <li class="components-li">
-                      <%=component%>
-                  </li>
-                  <% }); %>
-               </ul>
-                <button>Add to Cart</button>
+                    <h2 id="itemName">
+                        <%= product.name %>
+                    </h2>
+                    <h4>EGP <%= product.price %>
+                    </h4>
+                    <p>Category: <%= product.category %>
+                    </p>
+                    <p>Material: <%= product.material %>
+                    </p>
+                    <p>Colors: <%=product.colors%>
+                    </p>
+                    <p>Components:</p>
+                    <ul class="components-ul">
+                        <% product.components.forEach(function(component) { %>
+
+                            <li class="components-li">
+                                <%=component%>
+                            </li>
+                            <% }); %>
+                    </ul>
+                    <button>Add to Cart</button>
                 </div>
-              </div>
-          </div>
-      <% }); %>
-  
-   
+            </div>
+        </div>
+        <% }); %>
+
+
 </body>
+
 </html>
