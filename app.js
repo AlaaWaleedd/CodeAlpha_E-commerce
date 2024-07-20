@@ -23,12 +23,17 @@ const productsPageRoute=require('./routes/products-route');
 const livingRoomsRoute=require('./routes/livingRooms-route');
 const diningRoomsRoute=require('./routes/diningRooms-route');
 const nightstansRoute=require('./routes/nightstands-route');
+const wardrobesRoute=require('./routes/wardrobesPage-route');
+const dressersPageRoute=require('./routes/dressersPage-route');
 
 app.use('/',homePageRoute);
 app.use('/products',productsPageRoute);
 app.use('/livingRooms',livingRoomsRoute);
 app.use('/diningRooms',diningRoomsRoute);
 app.use('/nightstands',nightstansRoute);
+app.use('/wardrobes',wardrobesRoute);
+app.use('/dressers',dressersPageRoute);
+
 
 const dbURL=`mongodb+srv://${dbUserName}:${dbPassword}@cluster0.vlovamp.mongodb.net/codeAlpha?retryWrites=true&w=majority&appName=cluster0`;
 

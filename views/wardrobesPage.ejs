@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/wardrobesPage.css">
+    <script src="/scripts/homePage.js"></script>
+    <title>Wardrobes</title>
+</head>
+<body>
+
+    <header>
+        <%- include("./partial/nav-bar.ejs") %>
+    </header>
+
+    <h2>Wardrobes</h2>
+    <p> Discover our wide selection of wardrobes, crafted to match your unique taste and requirements. 
+        Whether you prefer a modern aesthetic or a <br>classic look, our collection offers a variety of options
+         including spacious hanging areas, adjustable shelves. </p>
+
+          <div class="card-container">
+         
+            <% products.forEach((product, index) => { %> 
+                <div class="card">
+                    <img onclick="Details('detailsModal<%= index %>')" src="<%= product.image %>" alt="<%= product.name %>">
+                    <h3 onclick="Details('detailsModal<%= index %>')"><%= product.name %></h3>
+                    <h4>EGP <%= product.price %></h4>
+                </div>
+            <% }); %>
+    </div>
+    
+
+
+      <!-- Modal -->
+
+      <% products.forEach((product, index) => { %>
+          <div id="detailsModal<%= index %>" class="modal">
+              <div class="modal-content">
+                  <span class="close" onclick="closeModal('detailsModal<%= index %>')">&times;</span>
+            
+                  <img src="<%= product.image %>" alt="<%= product.name %>">
+                <div class="modal-info">
+                  <h2><%= product.name %></h2>
+                  <h4>EGP <%= product.price %></h4>
+                  <p>Category: <%= product.category %></p>
+                  <p>Material: <%= product.material %></p>
+                  <p>Colors: <%=product.colors%></p>
+                  <p>Components:</p>
+               <ul class="components-ul">
+                  <% product.components.forEach(function(component) { %>  
+                 
+                  <li class="components-li">
+                      <%=component%>
+                  </li>
+                  <% }); %>
+               </ul>
+                <button>Add to Cart</button>
+                </div>
+              </div>
+          </div>
+      <% }); %>
+  
+    
+</body>
+</html>
